@@ -1,0 +1,52 @@
+.container {
+    width: 100%;
+    height: 80vh;
+    background: #373B44;
+    background: -webkit-linear-gradient(to right, #4286f4, #373B44);
+    background: linear-gradient(to right, #4286f4, #373B44);
+    color: #fff;
+}
+
+.container h1 {
+    text-align: center;
+    padding-top: 30px;
+    margin-bottom: 50px;
+    font-size: 60px;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content .info {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.content .info h2 {
+    font-size: 40px;
+}
+
+.content .info h3 {
+    margin-top: 10px;
+    font-size: 25px;
+}
+
+.content .about {
+    width: 40%;
+}
+
+.content .about h2 {
+    margin-bottom: 10px;
+    font-size: 25px;
+}
+
+.content .about p {
+    text-align: justify;
+    margin-right: 60px;
+}
