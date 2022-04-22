@@ -1,6 +1,6 @@
 .header {
     width: 100%;
-    height: 15vh;
+    height: 14vh;
     border-bottom: 3px solid #030161;
 }
 
@@ -11,7 +11,7 @@
 }
 
 .header .container-header img {
-    width: 90px;
+    width: 88px;
 }
 
 .header .container-header .links .item {
