@@ -17,8 +17,8 @@ const Home = () => {
                         <h3>Desenvolvido em React</h3>
                         <h3>Desenvolvedor Caio Moraes</h3>
                     </div>
-                    <div className="about">
-                        <h2>Descrição</h2>
+                    <div className="description">
+                        <h3>Descrição</h3>
                         <p>
                             Projeto desenvolvido pelo curso cripto dev, aonde desenvolvi uma página web 
                             utilizando a biblioteca react com o template em JavaScript, contendo duas 
