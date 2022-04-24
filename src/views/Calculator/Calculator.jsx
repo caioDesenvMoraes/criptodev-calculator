@@ -102,10 +102,8 @@ export default class Calculator extends Component {
         const values = [ ...this.state.values ]
         if (values[0].toString().length > 10) {
             let maxLength = 9
-            let parts = values[0].toString().split('.')
-            console.log(values[0].toString().length)    
+            let parts = values[0].toString().split('.')    
             if (parts[0].toString().length > 8) {
-                console.log(parts[0].toString().length)
                 this.setState({ ...initialState })
                 this.setState({ displayValue: 'ERRO', clearDisplay: true })
             } else if (parts[1] === '' ){
