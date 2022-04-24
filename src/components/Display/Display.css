@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+
+.display {
+    grid-column: span 4;
+    background-color: #0004;
+    font-family: "Orbitron", sans-serif;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px;
+    font-size: 1.5em;
+}
+
+.button:active {
+    background-color: #ccc;
+}
+
+.button.double {
+    grid-column: span 2;
+}
+
+.button.triple {
+    grid-column: span 3;
+}
+
+.button.operation {
+    background-color: #fa8231;
+    color: #fff;
+}
+
+.button.operation:active {
+    background-color: #fa8231cc;
+}
+
+.button.result {
+    background-color: #36f008;
+}
+
+.button.result:active {
+    background-color: #36f008cc;
+}

@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+    --bg-button: #f0f0f0;
+    --border-button: #888;
+}
+
+.button {
+    font-size: 1.4em;
+    background-color: var(--bg-button);
+    font-family: "Orbitron", sans-serif;
+    border: none;
+    border-right: 1px solid var(--border-button);
+    border-bottom: 1px solid var(--border-button);
+    outline: none;
+    cursor: pointer;
+}
