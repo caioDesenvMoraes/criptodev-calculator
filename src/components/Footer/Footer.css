@@ -15,6 +15,10 @@
     color: #030161;
 }
 
+.footer .container-footer .social-itens {
+    margin-left: 15px;
+}
+
 .footer .container-footer .social-itens a {
     margin-right: 30px;
     text-decoration: none;
@@ -27,4 +31,25 @@
 
 .footer .container-footer .social-itens a:hover {
     opacity: .5;
+}
+
+/***** responsividade *****/
+@media (max-width: 865px) {
+    .footer .container-footer p {
+        margin-left: 10px;
+    }
+}
+
+@media (max-width: 726px) {
+    .footer .container-footer .social-itens {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .footer .container-footer .social-itens a {
+        margin-bottom: 5px;
+        padding: 3px;
+    }
 }
