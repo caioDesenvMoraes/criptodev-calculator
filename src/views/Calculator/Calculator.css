@@ -27,3 +27,10 @@
     grid-template-columns: repeat(4, 25%);
     grid-template-rows: 1fr 45px 45px 45px 45px 45px;
 }
+
+/***** responsiveness *****/
+@media (max-width: 280px) {
+    .container-calculator h1 {
+        font-size: 40px;
+    }
+}

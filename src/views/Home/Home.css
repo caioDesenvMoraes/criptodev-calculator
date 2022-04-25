@@ -11,12 +11,11 @@
 }
 
 .container h1 {
+    margin: 0 20px 30px 20px;
     text-align: center;
     padding-top: 10px;
-    margin-bottom: 30px;
     font-size: 60px;
     border-bottom: 5px solid #fff;
-    width: 25%;
 }
 
 .content {
@@ -66,13 +65,7 @@
 }
 
 /***** Responsividade *****/
-@media (max-width: 1256px) {
-    .container h1 {
-        width: 40%;
-    }
-}
-
-@media (max-width: 1016px) {
+@media (max-width: 1024px) {
     .content .description {
         display: none;
     }
@@ -82,20 +75,22 @@
     }
 }
 
-@media (max-width: 786px) {
-    .container h1 {
-        width: 60%;
+@media (max-width: 432px) {
+    .content .info {
+        margin: 0 20px;
     }
 }
 
-@media (max-width: 523px) {
+@media (max-width: 280px) {
     .container h1 {
-        width: 80%;
+        font-size: 45px;
     }
-}
+    
+    .container .info h2 {
+        font-size: 40px;
+    }
 
-@media (max-width: 392px) {
-    .container h1 {
-        width: 100%;
+    .container .info h3 {
+        font-size: 20px;
     }
 }

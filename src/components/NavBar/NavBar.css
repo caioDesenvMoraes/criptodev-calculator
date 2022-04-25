@@ -13,7 +13,8 @@
 }
 
 .header .container-header img {
-    width: 88px;
+    width: 85px;
+    margin-left: 10px;
 }
 
 .header .container-header .links .item {
@@ -24,22 +25,128 @@
     padding: 5px 25px;
     border-radius: 10px;
     transition: all 600ms;
+    
 }
 
 .header .container-header .links .item:hover {
     opacity: .5;
 }
 
+.header .container-header .links-hamburguer {
+    background-color: #030161;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: none;
+    box-shadow: 0 0 0 0 #030161, 0 0 0 0 #030161;
+    cursor: pointer;
+    z-index: 1;
+    transition: box-shadow 1s ease-in-out;
+}
+
+.header .container-header .links-hamburguer:hover {
+    box-shadow: 0 0 0 4px #030161, 0 0 0 4px #030161;
+}
+
+.header .container-header .links-hamburguer input {
+    display: none;
+}
+
+.header .container-header .links-hamburguer .hamburguer {
+    display: block;
+    background: #fff;
+    width: 26px;
+    height: 2px;
+    position: relative;
+    top: 24px;
+    left: 12px;
+    cursor: pointer;
+    transition: all 800ms;
+}
+
+.header .container-header .links-hamburguer .hamburguer:after,
+.header .container-header .links-hamburguer .hamburguer:before {
+    background-color: #fff;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: all 800ms;
+}
+
+.header .container-header .links-hamburguer .hamburguer:before {
+    top: -10px;
+}
+
+.header .container-header .links-hamburguer .hamburguer:after {
+    bottom: -10px;
+}
+
+.header .container-header .links-hamburguer input:checked ~ label {
+    box-shadow: 0 0 0 100vw #030161, 0 0 0 100vh #030161;
+}
+
+.header .container-header .links-hamburguer input:checked ~ label .hamburguer {
+    transform: rotate(45deg);
+}
+
+.header .container-header .links-hamburguer input:checked ~ label .hamburguer:before {
+    transform: rotate(90deg);
+    top: 0;
+}
+
+.header .container-header .links-hamburguer input:checked ~ label .hamburguer:after {
+    transform: rotate(90deg);
+    bottom: 0;
+}
+
+.header .container-header .links-hamburguer label .links-2 {
+    position: absolute;
+    margin: 10px;
+    width: 100%;
+    top: 23%;
+    left: -9px;
+    display: none;
+}
+
+.header .container-header .links-hamburguer label .links-2 .item {
+    text-decoration: none;
+    color: #fff;
+    z-index: 100;
+    display: block;
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 30px;
+    transition: all 300ms;
+}
+
+.header .container-header .links-hamburguer label .links-2 .item:hover {
+    background-color: #fff;
+    color: #030161;
+    border-radius: 20px;
+    padding: 5px;
+}
+
+.header .container-header .links-hamburguer input:checked ~ label .links-2 {
+    display: block;
+}
+
+
 /***** responsividade *****/
-@media (max-width: 559px) {
+@media (max-width: 865px) {
     .header .container-header .links {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        display: none;
     }
     
-    .header .container-header .links .item {
-        margin-bottom: 10px;
+    .header .container-header .links-hamburguer {
+        display: block;
     }    
     
+}
+
+@media (max-width: 280px)  {
+    .header .container-header .links-hamburguer label .links-2 .item {
+        font-size: 40px;
+    }   
 }

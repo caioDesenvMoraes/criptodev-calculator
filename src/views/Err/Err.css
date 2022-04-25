@@ -14,9 +14,12 @@
 
 .container-err .content-err {
     background-color: #fff;
-    padding: 40px 40px;
+    padding: 40px;
     text-align: center;
     border-radius: 20px;
+    margin: 0 20px;
+    display: flex;
+    flex-direction: column;
 }
 
 .container-err .content-err h1 {
@@ -42,3 +45,5 @@
     color: #fff;
     border-radius: 10px;
 }
+
+/***** responsiveness *****/

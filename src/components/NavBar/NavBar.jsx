@@ -14,6 +14,20 @@ const NavBar = () => {
                         <Link to="/" className="item">Home</Link>
                         <Link to="/calculator" className="item">Calculator</Link>
                     </div>
+                    <div className="links-hamburguer">
+                        <input id="menu-hamburguer" type="checkbox"/>
+                        <label for="menu-hamburguer">
+                            <span className="hamburguer"></span>
+                            <div className="links-2">
+                                <Link to="/" className="item">Home</Link>
+                                <Link to="/calculator" className="item">Calculator</Link>
+                                <a href="https://www.instagram.com/caiomutley/" target="_blank" rel="noreferrer" className="item">Instagram</a>
+                                <a href="https://www.linkedin.com/in/caio-moraes-8026a6158/" target="_blank" rel="noreferrer" className="item">Linkedin</a>
+                                <a href="https://github.com/caioDesenvMoraes" target="_blank" rel="noreferrer" className="item">Github</a>
+                            </div>
+                        </label>
+                        
+                    </div>
                 </div>
             </header>
         </>
