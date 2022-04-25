@@ -61,7 +61,7 @@
 
 .content .description p {
     text-align: justify;
-    margin: 0 60px;
+    margin: 0 60px 10px 60px;
 }
 
 /***** responsiviness *****/
