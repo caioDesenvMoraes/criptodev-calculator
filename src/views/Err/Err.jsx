@@ -15,6 +15,16 @@ const Err = () => {
                             <Link to="/" className="item">Voltar para Home</Link>
                             <Link to="/calculator" className="item">Ir para Calculadora</Link>
                     </div>
+                    <div className="links-hamburguer">
+                        <input id="menu-hamburguer" type="checkbox"/>
+                        <label for="menu-hamburguer">
+                            <span className="hamburguer"></span>
+                            <div className="links-2">
+                                <Link to="/" className="item2">Home</Link>
+                                <Link to="/calculator" className="item2">Calculadora</Link>
+                            </div>
+                        </label>
+                    </div>
                 </div>
             </div>
         </>

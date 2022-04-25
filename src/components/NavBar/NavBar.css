@@ -9,7 +9,7 @@
     justify-content: space-around;
     align-items: center;
     height: 100%;
-    width:100%;
+    width: 100%;
 }
 
 .header .container-header img {
@@ -25,22 +25,22 @@
     padding: 5px 25px;
     border-radius: 10px;
     transition: all 600ms;
-    
 }
 
 .header .container-header .links .item:hover {
     opacity: .5;
 }
 
+/***** menu hamburguer *****/
 .header .container-header .links-hamburguer {
     background-color: #030161;
     border-radius: 50%;
     width: 50px;
     height: 50px;
-    display: none;
     box-shadow: 0 0 0 0 #030161, 0 0 0 0 #030161;
     cursor: pointer;
     z-index: 1;
+    display: none;
     transition: box-shadow 1s ease-in-out;
 }
 
@@ -133,7 +133,7 @@
 }
 
 
-/***** responsividade *****/
+/***** responsiviness *****/
 @media (max-width: 865px) {
     .header .container-header .links {
         display: none;
@@ -145,7 +145,7 @@
     
 }
 
-@media (max-width: 280px)  {
+@media (max-width: 432px)  {
     .header .container-header .links-hamburguer label .links-2 .item {
         font-size: 40px;
     }   

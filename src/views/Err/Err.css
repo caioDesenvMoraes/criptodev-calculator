@@ -1,9 +1,9 @@
 .container-err {
     width: 100%;
     height: 100vh;
-    background: #333333;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #dd1818, #333333);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #dd1818, #333333); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #333333;
+    background: -webkit-linear-gradient(to right, #dd1818, #333333);
+    background: linear-gradient(to right, #dd1818, #333333); 
     color: #333;
 
     display: flex;
@@ -20,6 +20,7 @@
     margin: 0 20px;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .container-err .content-err h1 {
@@ -46,4 +47,113 @@
     border-radius: 10px;
 }
 
+/***** menu hamburguer *****/
+.container-err .content-err .links-hamburguer {
+    background: #dd1818; 
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    box-shadow: 0 0 0 0 #dd1818, 0 0 0 0 #dd1818;
+    cursor: pointer;
+    display: none;
+    transition: box-shadow 1s ease-in-out;
+}
+
+.container-err .content-err .links-hamburguer:hover {
+    box-shadow: 0 0 0 4px #dd1818, 0 0 0 4px #dd1818;
+}
+
+.container-err .content-err .links-hamburguer input {
+    display: none;
+}
+
+.container-err .content-err .links-hamburguer .hamburguer {
+    display: block;
+    background: #fff;
+    width: 26px;
+    height: 2px;
+    position: relative;
+    top: 24px;
+    left: 12px;
+    cursor: pointer;
+    transition: all 800ms;
+}
+
+.container-err .content-err .links-hamburguer .hamburguer:before,
+.container-err .content-err .links-hamburguer .hamburguer:after {
+    background-color: #fff;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: all 800ms;
+}
+
+.container-err .content-err .links-hamburguer .hamburguer:before {
+    top: -10px;
+}
+
+.container-err .content-err .links-hamburguer .hamburguer:after {
+    bottom: -10px;
+}
+
+.container-err .content-err .links-hamburguer input:checked ~ label {
+    box-shadow: 0 0 0 100vw #dd1818, 0 0 0 100vh #dd1818;
+} 
+
+.container-err .content-err .links-hamburguer input:checked ~ label .hamburguer {
+    transform: rotate(45deg);
+}
+
+.container-err .content-err .links-hamburguer input:checked ~ label .hamburguer:before {
+    transform: rotate(90deg);
+    top: 0;
+}
+
+.container-err .content-err .links-hamburguer input:checked ~ label .hamburguer:after {
+    transform: rotate(90deg);
+    bottom: 0;
+}
+
+.container-err .content-err .links-hamburguer label .links-2 {
+    position: absolute;
+    margin: 10px;
+    width: 100%;
+    top: 35%;
+    left: -3%;
+    display: none;
+}
+
+.container-err .content-err .links-hamburguer label .links-2 .item2 {
+    text-decoration: none;
+    color: #fff;
+    z-index: 100;
+    display: block;
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 30px;
+    transition: all 300ms;
+}
+
+.container-err .content-err .links-hamburguer label .links-2 .item2:hover {
+    background-color: #fff;
+    color: #dd1818;
+    border-radius: 20px;
+    padding: 5px;
+}
+
+.container-err .content-err .links-hamburguer input:checked ~ label .links-2 {
+    display: block;
+}
+
 /***** responsiveness *****/
+@media (max-width: 473px) {
+    .container-err .content-err .links {
+        display: none;
+    }
+
+    .container-err .content-err .links-hamburguer {
+        display: block;
+    }
+}
