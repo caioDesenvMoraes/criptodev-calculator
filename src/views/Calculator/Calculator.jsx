@@ -25,6 +25,7 @@ export default class Calculator extends Component {
     
     setOperation(operation) {
         if(this.state.current === 0) {
+            localStorage.setItem("result", `${this.state.values[0]} ${operation} `)
             // setando o estado
             this.setState({clearDisplay: true, operation, current: 1})
         } else {
@@ -49,6 +50,10 @@ export default class Calculator extends Component {
                 case "/":
                     values[0] /= values[1]
                     values[0] = parseFloat(values[0].toFixed(3))
+                    if (isNaN(values[0]) || !isFinite(values[0])) {
+                        this.clearMemory()
+                        return
+                    }
                     break
                 case "=":
                     values[0] = 0
@@ -56,9 +61,10 @@ export default class Calculator extends Component {
                 default:
             }
 
+
             // zerando o indice 1
             values[1] = 0
-
+            
             // setando o estado
             this.setState({
                 displayValue: values[0].toString(),
@@ -68,6 +74,17 @@ export default class Calculator extends Component {
                 current: result ? 0 : 1
             })
             console.log(this.state.values)
+
+            if(!result) {
+                const ls = localStorage.getItem("result")
+                localStorage.removeItem("result")
+                localStorage.setItem("result", `${ls} = ${values[0]} ${operation} `)
+            } else {
+                const ls = localStorage.getItem("result")
+                localStorage.removeItem("result")
+                localStorage.setItem("result", `${ls} = ${values[0]}`)
+                alert(localStorage.getItem("result"))
+            }
 
         }
     }
@@ -117,6 +134,15 @@ export default class Calculator extends Component {
                 })
             }
         }
+        
+        if(this.state.current === 0) {
+            localStorage.setItem("result", displayValue)
+        } else {
+            const ls = localStorage.getItem("result")
+            localStorage.removeItem("result")
+            localStorage.setItem("result", `${ls}${dig}`)
+        }
+        
     }
 
     render() {
