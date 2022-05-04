@@ -16,77 +16,12 @@ const initialState = {
 }
 export default class Calculator extends Component {
 
+    // clonando meu estado inicial
     state = { ...initialState }
     
     clearMemory() {
             // setando pro estado inicial
             this.setState({ ...initialState })
-    }
-    
-    setOperation(operation) {
-        if(this.state.current === 0) {
-            localStorage.setItem("result", `${this.state.values[0]} ${operation} `)
-            // setando o estado
-            this.setState({clearDisplay: true, operation, current: 1})
-        } else {
-            // pegando a operação igual (result) "="
-            const result = operation === "="
-            const currentOperation = this.state.operation
-
-            // clonando o array values
-            const values = [ ...this.state.values ]
-
-            // selecionando a operação
-            switch(currentOperation) {
-                case "+":
-                    values[0] += values[1]
-                    break
-                case "-":
-                    values[0] -= values[1]
-                    break
-                case "*":
-                    values[0] *= values[1]
-                    break
-                case "/":
-                    values[0] /= values[1]
-                    values[0] = parseFloat(values[0].toFixed(3))
-                    if (isNaN(values[0]) || !isFinite(values[0])) {
-                        this.clearMemory()
-                        return
-                    }
-                    break
-                case "=":
-                    values[0] = 0
-                    break
-                default:
-            }
-
-
-            // zerando o indice 1
-            values[1] = 0
-            
-            // setando o estado
-            this.setState({
-                displayValue: values[0].toString(),
-                clearDisplay: !result,
-                operation: result ? null : operation,
-                values,
-                current: result ? 0 : 1
-            })
-            console.log(this.state.values)
-
-            if(!result) {
-                const ls = localStorage.getItem("result")
-                localStorage.removeItem("result")
-                localStorage.setItem("result", `${ls} = ${values[0]} ${operation} `)
-            } else {
-                const ls = localStorage.getItem("result")
-                localStorage.removeItem("result")
-                localStorage.setItem("result", `${ls} = ${values[0]}`)
-                alert(localStorage.getItem("result"))
-            }
-
-        }
     }
     
     addDigit(dig) {
@@ -135,6 +70,7 @@ export default class Calculator extends Component {
             }
         }
         
+        // localstorage
         if(this.state.current === 0) {
             localStorage.setItem("result", displayValue)
         } else {
@@ -144,7 +80,72 @@ export default class Calculator extends Component {
         }
         
     }
+    
+    setOperation(operation) {
+        if(this.state.current === 0) {
+            // localstorage
+            localStorage.setItem("result", `${this.state.values[0]} ${operation} `)
+            // setando o estado
+            this.setState({clearDisplay: true, operation, current: 1})
+        } else {
+            // pegando a operação igual (result) "="
+            const result = operation === "="
+            const currentOperation = this.state.operation
 
+            // clonando o array values
+            const values = [ ...this.state.values ]
+
+            // selecionando a operação
+            switch(currentOperation) {
+                case "+":
+                    values[0] += values[1]
+                    break
+                case "-":
+                    values[0] -= values[1]
+                    break
+                case "*":
+                    values[0] *= values[1]
+                    break
+                case "/":
+                    values[0] /= values[1]
+                    values[0] = parseFloat(values[0].toFixed(3))
+                    if (isNaN(values[0]) || !isFinite(values[0])) {
+                        this.clearMemory()
+                        return
+                    }
+                    break
+                default:
+            }
+
+                
+            // zerando o indice 1
+            values[1] = 0
+            
+            // setando o estado
+            this.setState({
+                displayValue: values[0].toString(),
+                clearDisplay: !result,
+                operation: result ? null : operation,
+                values,
+                current: result ? 0 : 1
+            })
+            
+
+            // localstorage
+            if(!result) {
+                const ls = localStorage.getItem("result")
+                localStorage.removeItem("result")
+                localStorage.setItem("result", `${ls} = ${values[0]} ${operation} `)
+            } else {
+                const ls = localStorage.getItem("result")
+                localStorage.removeItem("result")
+                localStorage.setItem("result", `${ls} = ${values[0]}`)
+                alert(localStorage.getItem("result"))
+            }
+
+        }
+    }
+    
     render() {
         const addDigit = dig => this.addDigit(dig)
         const setOperation = ope => this.setOperation(ope)

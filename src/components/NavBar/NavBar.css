@@ -15,6 +15,7 @@
 .header .container-header img {
     width: 85px;
     margin-left: 10px;
+    height: 100%;
 }
 
 .header .container-header .links .item {
@@ -134,7 +135,7 @@
 
 
 /***** responsiviness *****/
-@media (max-width: 865px) {
+@media (max-width: 885px) {
     .header .container-header .links {
         display: none;
     }
@@ -144,3 +145,4 @@
     }    
     
 }
+

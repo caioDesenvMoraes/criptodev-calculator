@@ -11,31 +11,3 @@
     font-size: 1.5em;
 }
 
-.button:active {
-    background-color: #ccc;
-}
-
-.button.double {
-    grid-column: span 2;
-}
-
-.button.triple {
-    grid-column: span 3;
-}
-
-.button.operation {
-    background-color: #fa8231;
-    color: #fff;
-}
-
-.button.operation:active {
-    background-color: #fa8231cc;
-}
-
-.button.result {
-    background-color: #36f008;
-}
-
-.button.result:active {
-    background-color: #36f008cc;
-}

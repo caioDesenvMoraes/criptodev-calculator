@@ -36,7 +36,7 @@
 }
 
 /***** responsividade *****/
-@media (max-width: 865px) {
+@media (max-width: 885px) {
     .footer .container-footer p {
         margin-left: 10px;
     }

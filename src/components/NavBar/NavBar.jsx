@@ -16,7 +16,7 @@ const NavBar = () => {
                     </div>
                     <div className="links-hamburguer">
                         <input id="menu-hamburguer" type="checkbox"/>
-                        <label for="menu-hamburguer">
+                        <label htmlFor="menu-hamburguer">
                             <span className="hamburguer"></span>
                             <div className="links-2">
                                 <Link to="/" className="item">Home</Link>
