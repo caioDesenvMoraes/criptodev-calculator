@@ -12,8 +12,8 @@ const Err = () => {
                     <h2>404 Página não encontrada</h2>
                     <p>O documento solicitado não existe ou foi removido</p>
                     <div className="links">
-                            <Link to="/" className="item">Voltar para Home</Link>
-                            <Link to="/calculator" className="item">Ir para Calculadora</Link>
+                        <Link to="/" className="item">Voltar para Home</Link>
+                        <Link to="/calculator" className="item">Ir para Calculadora</Link>
                     </div>
                     <div className="links-hamburguer">
                         <input id="menu-hamburguer" type="checkbox"/>

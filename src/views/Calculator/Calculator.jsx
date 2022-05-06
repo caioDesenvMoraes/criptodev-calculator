@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 
+// components
 import NavBar from "../../components/NavBar/NavBar"
 import Footer from "../../components/Footer/Footer"
 import Button from "../../components/Button/Button"
@@ -20,56 +21,29 @@ export default class Calculator extends Component {
     state = { ...initialState }
     
     clearMemory() {
-            // setando pro estado inicial
-            this.setState({ ...initialState })
+        // setando pro estado inicial
+        this.setState({ ...initialState })
     }
     
     addDigit(dig) {
-        // evitando colocar dois pontos na calculadora (123.45.67)
         if(dig === "." && this.state.displayValue.includes(".")) return
-        // limpar o display
         const clearDisplay = this.state.displayValue === "0" || this.state.clearDisplay
-        // pegar o valor atual
         const currentValue = clearDisplay ? "" : this.state.displayValue
-        // mostrar no display
         const displayValue = currentValue + dig
+        
         // setando o estado
-        this.setState({displayValue, clearDisplay: false})
+        this.setState({ displayValue, clearDisplay: false })
 
         if(dig !== ".") {
-            // pegando o indice atual
-            const i = this.state.current
-            // criando um novo valor transformado em float
-            const newValue = parseFloat(displayValue)
-            // clonando o array de valores
             const values = [ ...this.state.values ]
-            // colocando o novo valor no indice atual do array
+            const i = this.state.current
+            const newValue = parseFloat(displayValue)
             values[i] = newValue
+            
             // setando o estado
             this.setState({ values })
-            console.log(values)
         }
 
-        // deixando mais real
-        const values = [ ...this.state.values ]
-        if (values[0].toString().length > 10) {
-            let maxLength = 9
-            let parts = values[0].toString().split('.')    
-            if (parts[0].toString().length > 8) {
-                this.setState({ ...initialState })
-                this.setState({ displayValue: 'ERRO', clearDisplay: true })
-            } else if (parts[1] === '' ){
-                this.setState({ displayValue: parts[0] })
-            } else {
-                parts[1] = parts[1].substring(0,
-                    (maxLength - parts[0].toString().length))
-                
-                this.setState({
-                    displayValue: parts.join('.')
-                })
-            }
-        }
-        
         // localstorage
         if(this.state.current === 0) {
             localStorage.setItem("result", displayValue)
@@ -83,10 +57,13 @@ export default class Calculator extends Component {
     
     setOperation(operation) {
         if(this.state.current === 0) {
-            // localstorage
-            localStorage.setItem("result", `${this.state.values[0]} ${operation} `)
+            if (operation === "=") return
+            
             // setando o estado
             this.setState({clearDisplay: true, operation, current: 1})
+            
+            // localstorage
+            localStorage.setItem("result", `${this.state.values[0]} ${operation} `)
         } else {
             // pegando a operação igual (result) "="
             const result = operation === "="
@@ -95,7 +72,7 @@ export default class Calculator extends Component {
             // clonando o array values
             const values = [ ...this.state.values ]
 
-            // selecionando a operação
+            // verificando a operação
             switch(currentOperation) {
                 case "+":
                     values[0] += values[1]
@@ -109,6 +86,7 @@ export default class Calculator extends Component {
                 case "/":
                     values[0] /= values[1]
                     values[0] = parseFloat(values[0].toFixed(3))
+                    // tratamento de erro
                     if (isNaN(values[0]) || !isFinite(values[0])) {
                         this.clearMemory()
                         return
@@ -116,8 +94,7 @@ export default class Calculator extends Component {
                     break
                 default:
             }
-
-                
+   
             // zerando o indice 1
             values[1] = 0
             
@@ -128,8 +105,7 @@ export default class Calculator extends Component {
                 operation: result ? null : operation,
                 values,
                 current: result ? 0 : 1
-            })
-            
+            })            
 
             // localstorage
             if(!result) {
